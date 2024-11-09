@@ -47,7 +47,7 @@ class FFHQDegradationDataset(data.Dataset):
 
         if self.crop_components:
             # load component list from a pre-process pth files
-            self.components_list = torch.load(opt.get('component_path'))
+            self.components_list = torch.load(opt.get('component_path'), weights_only=True)
 
         # file client (lmdb io backend)
         if self.io_backend_opt['type'] == 'lmdb':

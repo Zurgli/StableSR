@@ -133,7 +133,7 @@ class EmbeddingManager(nn.Module):
                     "string_to_param": self.string_to_param_dict}, ckpt_path)
 
     def load(self, ckpt_path):
-        ckpt = torch.load(ckpt_path, map_location='cpu')
+        ckpt = torch.load(ckpt_path, map_location='cpu', weights_only=True)
 
         self.string_to_token_dict = ckpt["string_to_token"]
         self.string_to_param_dict = ckpt["string_to_param"]
