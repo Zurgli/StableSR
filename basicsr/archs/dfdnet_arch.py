@@ -74,7 +74,7 @@ class DFDNet(nn.Module):
         self.flag_dict_device = False
 
         # dict
-        self.dict = torch.load(dict_path)
+        self.dict = torch.load(dict_path, weights_only=True)
 
         # vgg face extractor
         self.vgg_extractor = VGGFeatureExtractor(

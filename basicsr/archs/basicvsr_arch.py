@@ -299,7 +299,7 @@ class EDVRFeatureExtractor(nn.Module):
         self.lrelu = nn.LeakyReLU(negative_slope=0.1, inplace=True)
 
         if load_path:
-            self.load_state_dict(torch.load(load_path, map_location=lambda storage, loc: storage)['params'])
+            self.load_state_dict(torch.load(load_path, map_location=lambda storage, loc: storage, weights_only=True)['params'])
 
     def forward(self, x):
         b, n, c, h, w = x.size()

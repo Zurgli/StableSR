@@ -178,7 +178,7 @@ def fid_inception_v3():
     inception.Mixed_7c = FIDInceptionE_2(2048)
 
     if os.path.exists(LOCAL_FID_WEIGHTS):
-        state_dict = torch.load(LOCAL_FID_WEIGHTS, map_location=lambda storage, loc: storage)
+        state_dict = torch.load(LOCAL_FID_WEIGHTS, map_location=lambda storage, loc: storage, weights_only=True)
     else:
         state_dict = load_url(FID_WEIGHTS_URL, progress=True)
 

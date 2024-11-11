@@ -14,7 +14,7 @@ from PIL import Image
 from pytorch_lightning import seed_everything
 from pytorch_lightning.trainer import Trainer
 from pytorch_lightning.callbacks import ModelCheckpoint, Callback, LearningRateMonitor
-from pytorch_lightning.utilities.distributed import rank_zero_only
+from pytorch_lightning.utilities.rank_zero import rank_zero_only
 # from pytorch_lightning.utilities.rank_zero import rank_zero_only
 from pytorch_lightning.utilities import rank_zero_info
 
@@ -492,7 +492,7 @@ if __name__ == "__main__":
             ckpt = os.path.join(logdir, "checkpoints", "last.ckpt")
 
         # delete JPEGer
-        # state_dict = torch.load(ckpt)
+        # state_dict = torch.load(ckpt, weights_only=True)
         # new_state_dict = OrderedDict()
         # for k, v in state_dict['state_dict'].items():
         #     if 'jpeger' not in k or 'usm_sharpener' not in k:
